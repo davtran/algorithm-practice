@@ -24,14 +24,26 @@ public class PracticeLinkedList {
 		listCount++;
 	}
 	
-	public void delete(String data) {
-		
+	public void remove(int index) {
+		// Get the node from the top of the list
+		Node current = head;
+		// Set the current node to be n node ex) if second node, loop once.  current node is now second node
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+		// Overwrite the current node that was updated from the for loop
+		current = current.next;
+		// Reduce the total count
+		listCount--;
 	}
 
 	private class Node {
+		// the guy next in line
 		public Node next;
+		// just some random data, who cares
 		public String data;
 
+		// properties of a node
 		public Node(String data) {
 			next = null;
 			this.data = data;
