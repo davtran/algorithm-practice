@@ -3,19 +3,29 @@ package main.java;
 /**
  * 1) List is empty
  * 2) List has an item
- *
+ * 
  */
 public class PracticeLinkedList {
 	private Node head;
 	private int listCount;
 
 	public PracticeLinkedList() {
-		head = new Node(null);
+		this.head = null;
 		listCount = 0;
 	}
 
+	/**
+	 * if there is already a head, you need to point the new head's "next" to the existing head
+	 * we want key2 -> key3, after invoking insert('key1'), to become key1 -> key2 -> key3
+	 */
 	public void add(String data) {
 		Node temp = new Node(data);
+//		if (current != null) {			
+//			current.next = new Node(data, current);
+//		} else {
+//			current = new Node(data, this.head);
+//		}
+		// useful for checking the tail O(n)
 		Node current = head;
 		while (current != null) {
 			current = current.next;
@@ -45,7 +55,6 @@ public class PracticeLinkedList {
 
 		// properties of a node
 		public Node(String data) {
-			next = null;
 			this.data = data;
 		}
 	}
