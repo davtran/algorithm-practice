@@ -20,28 +20,30 @@ public class PracticeHeadLinkedList {
 	 */
 	public void add(String data) {
 		Node current = head;
-		current = new Node(data, current);
+		if (current == null) {
+			current = new Node(data, current);  // the null node is now filled with a value
+		} else {
+			Node temp = new Node(data, null);  // a new temporary node with data and an empty next
+			temp.next = current;  // assuming current value is not empty, that temporary next contains current's data
+			current = temp;  // the head now contains the temp node
+		}
 		listCount++;
 	}
 
-	public void remove(String data) {
-		Node current = head;
+	public void remove(String data) { // key2
+		// need to iterate through the list of available nodes
+		Node current = head; // null
+		Node next = current.next; // key2
 		for (int i = 0; i < listCount; i++) {
-			Node next = current.next;
-			if (data == current.data) {
-				
+			// assuming head is null, if the next data matches the target string
+			// break out of the loop and remove that node
+			if (next.data == data) { // key2
+				// the target next data is replaced by the data next to it
+				next = current.next.next;
 			}
+			// need to get the next one to continue the loop
+			next = next.next;
 		}
-		// Get the node from the top of the list
-		
-		// Set the current node to be n node ex) if second node, loop once.
-		// current node is now second node
-//		for (int i = 0; i < index; i++) {
-//			current = current.next;
-//		}
-		// Overwrite the current node that was updated from the for loop
-//		current = current.next;
-		// Reduce the total count
 		listCount--;
 	}
 
