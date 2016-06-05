@@ -34,4 +34,29 @@ public class ComparingStrings {
 			return false;
 		}
 	}
+	
+	public Boolean isPalindrome(String string) {
+		Map<Character,Integer> map = new HashMap<Character, Integer>();
+		int oddCount = 0;
+		
+		for (char c : string.toCharArray()) {
+			if (map.get(c) == null) {
+				map.put(c, 1);
+			} else {
+				map.put(c, map.get(c) + 1);
+			}
+		}
+		
+		for (char c : map.keySet()) {
+			if (map.get(c) % 2 == 1) {
+				oddCount++;
+			}
+		}
+		
+		if (oddCount > 1) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
