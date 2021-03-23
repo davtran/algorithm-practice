@@ -1,4 +1,5 @@
 /**
+ * algorithim does not satisfy all the requirements
  * @param {number[]} prices
  * @return {number}
  */
