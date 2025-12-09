@@ -23,9 +23,9 @@ def validTree(n, edges):
     
     # build adjacency list
     adjacency_list = { i: [] for i in range(n) } # create the empty list based on number of nodes
-    for u, v in edges:
-        adjacency_list[u].append(v)
-        adjacency_list[v].append(u)
+    for from_node, to_node in edges:
+        adjacency_list[from_node].append(to_node)
+        adjacency_list[to_node].append(from_node)
 
     # keep track of seen nodes
     seen = set()
